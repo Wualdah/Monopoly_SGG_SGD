@@ -1,6 +1,16 @@
+import random
+ #Esta funcion servira para cada vez que se quiera tirar los dados
+    
+def tirar_dados():
+    dado1 = random.randint(1,6)
+    dado2 = random.randint(1,6)
+    suma_dados = dado1+dado2
+    print(f"Ha salido un {dado1} y un {dado2}")
+    return suma_dados
+
 def tablero_monopoly():
     # Definimos las casillas del tablero en el orden correcto
-    fila_arriba = ["Parking", "Urquinaona", "Fontanella", "Suerte", "Rambles", "Pl. Catalunya", "Anr pró"]
+    fila_arriba = ["Parking", "Urquinoa", "Fontan", "Suerte", "Rambles", "Pl. Cat", "Anr pró"]
     fila_abajo = ["Presó", "Consell", "Marina", "Suerte", "Rosell", "Lauria", "Sortida"]
     columna_izquierda = ["Aragó", "Sant Joan", "Caixa", "Aribau", "Muntaner"]
     columna_derecha = ["Angel", "Augusta", "Caixa", "Balmes", "Gracia"]
@@ -52,12 +62,16 @@ jugadores = ['V', 'G', 'T', 'B']
 #Mezclamos aleatoriamente el orden de los jugadores
 random.shuffle(jugadores)
 #Mostramos el orden de tirada y el formato de salida
-print("+--------+")
-print(f"|{''.join(jugadores)}    | Significa que primer tira el {jugadores[0]}")
-print(f"|Sortida | després el {jugadores[1]}, després el {jugadores[2]}")
-print(f"+--------+ finalment el {jugadores[3]}")
+print(f"Aquest sera l'ordre de tota la partida ({''.join(jugadores)}).Significa que primer tira el {jugadores[0]}")
+print(f" després el {jugadores[1]}, després el {jugadores[2]} i finalment el {jugadores[3]}")
 
 #Capital inicial de cada jugador
 dinero_inicial = {}
 for jugador in jugadores:
     dinero_inicial[jugador] = 2000
+
+for jugador in jugadores:
+    input(f"\nEs el turno del jugador {jugador}. Presiona Enter para tirar los dados...")
+    mov_casillas = tirar_dados()
+    print(f"El jugador {jugador} se moverá {mov_casillas} casillas.")
+
