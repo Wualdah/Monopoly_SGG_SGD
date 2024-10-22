@@ -131,10 +131,9 @@ def interacciones_jugadores(jugador):
         print("Opción no válida. Intenta de nuevo.") 
 
 
-def jugar():
+#def jugar():
     for jugador in jugadores:
         interacciones_jugadores(jugador)
         print("-" * 30)
 
 # Llamamos a la función para simular los turnos
-jugar()
