@@ -47,26 +47,24 @@ casillas = [
         "comprar casa":0,
         "comprar hotel":0
 
-    }
-
+    },
     {
         "nombre": "Rosell",
         "jugadores":[],
-        "tipo "nombre": "Rosell",
-        "jugadores":[],
-        "tipo":"calle",ietario":"Banco",
+        "tipo":"calle",
+        "propietario":"Banco",
         "alquilar casa":0,
         "alquilar hotel":0,
         "comprar terreno":0,
         "comprar casa":0,
         "comprar hotel":0
 
-    }
+    },
 
     {
         "nombre": "Sort",
         "jugadores":[]
-    }
+    },
 
     {
         "nombre": "Marina",
@@ -79,7 +77,7 @@ casillas = [
         "comprar casa":0,
         "comprar hotel":0
 
-    }
+    },
 
     {
         "nombre": "Consell",
@@ -92,13 +90,13 @@ casillas = [
         "comprar casa":0,
         "comprar hotel":0
 
-    }
+    },
 
     {
         "nombre": "Prisión",
         "jugadores":[]
 
-    }
+    },
 
     {
         "nombre": "Muntan",
@@ -111,7 +109,7 @@ casillas = [
         "comprar casa":0,
         "comprar hotel":0
 
-    }
+    },
 
     {
         "nombre": "Aribau",
@@ -124,13 +122,13 @@ casillas = [
         "comprar casa":0,
         "comprar hotel":0
 
-    }
+    },
 
     {
         "nombre": "Caixa",
         "jugadores":[]
 
-    }
+    },
 
     {
         "nombre": "S.Joan",
@@ -143,7 +141,7 @@ casillas = [
         "comprar casa":0,
         "comprar hotel":0
 
-    }
+    },
 
     {
         "nombre": "Aragó",
@@ -156,7 +154,7 @@ casillas = [
         "comprar casa":0,
         "comprar hotel":0
 
-    }
+    },
 
     {
         "nombre": "Parking",
@@ -169,7 +167,7 @@ casillas = [
         "comprar casa":0,
         "comprar hotel":0
 
-    }
+    },
 
     {
         "nombre": "Urqinoa",
@@ -182,7 +180,7 @@ casillas = [
         "comprar casa":0,
         "comprar hotel":0
 
-    }
+    },
 
     {
         "nombre": "Lauria",
@@ -195,7 +193,7 @@ casillas = [
         "comprar casa":0,
         "comprar hotel":0
 
-    }
+    },
 
     {
         "nombre": "Lauria",
@@ -208,7 +206,7 @@ casillas = [
         "comprar casa":0,
         "comprar hotel":0
 
-    }
+    },
 
     {
         "nombre": "Lauria",
@@ -221,7 +219,7 @@ casillas = [
         "comprar casa":0,
         "comprar hotel":0
 
-    }
+    },
 
     {
         "nombre": "Lauria",
@@ -234,6 +232,6 @@ casillas = [
         "comprar casa":0,
         "comprar hotel":0
 
-    }
+    },
 
 ]
