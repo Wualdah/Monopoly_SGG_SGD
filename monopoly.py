@@ -24,8 +24,31 @@ def dividir_mensaje(mensaje, ancho):
         lineas.append(linea_actual)
     return lineas
 
+# Función para mostrar la información de los jugadores
+def mostrar_informacion_jugadores(jugadores_info):
+    info = []
+    info.append("+--------+--------+ Banca:")
+    info.append(f"|Pl.Cat  |Anr pró | Diners: {jugadores_info['banca']['diners']}")
+    info.append("|        |        |")
+    info.append("+--------+--------+")
+    
+    # Mostrar cada jugador
+    for jugador, data in jugadores_info['jugadors'].items():
+        info.append(f" Jugador {data['color']}: ")
+        info.append(f" |{data['nom']}   | Carrers: {', '.join(data['carrers']) if data['carrers'] else '(res)'}")
+        info.append(f" |        | Diners: {data['diners']}")
+        if data['especial']:
+            info.append(f" |Especial: {data['especial']}")
+        else:
+            info.append(" |Especial: (res)")
+        info.append("+--------+--------+")
+
+    # Imprimir la información de los jugadores a la derecha del tablero
+    for linea in info:
+        print(linea)
+
 # Función para mostrar el tablero y las posiciones de los jugadores
-def mostrar_tablero(posiciones, mensaje):
+def mostrar_tablero(posiciones, mensaje, jugadores_info):
     # Tablero original dividido en filas y columnas
     fila_arriba = ["Parking", "Urquinoa", "Fontan", "Suerte", "Rambles", "Pl. Cat", "Anr pró"]
     fila_abajo = ["Presó", "Consell", "Marina", "Suerte", "Rosell", "Lauria", "Sortida"]
@@ -92,48 +115,30 @@ def mostrar_tablero(posiciones, mensaje):
     # Imprimir la fila inferior
     print(fila(fila_abajo))
 
-    # Mostrar las fichas de los jugadores
-    mostrar_fichas(posiciones)
-
-# Función para mostrar las fichas de los jugadores
-def mostrar_fichas(posiciones):
-    # Construir la visualización de las fichas
-    casillas = [
-        "Parking", "Urquinoa", "Fontan", "Suerte", "Rambles", "Pl. Cat", "Anr pró",
-        "Aragó", "Sant Joan", "Caixa", "Aribau", "Muntaner",
-        "Angel", "Augusta", "Caixa", "Balmes", "Gracia",
-        "Presó", "Consell", "Marina", "Suerte", "Rosell", "Lauria", "Sortida"
-    ]
-
-    # Crear un diccionario para almacenar las fichas en cada casilla
-    fichas_en_casilla = {i: [] for i in range(len(casillas))}
-
-    for jugador, pos in posiciones.items():
-        fichas_en_casilla[pos].append(jugador)
-
-
-# Banco del juego del Monopoly
-def banco(cap_ini, cap_actual):
-    # Verificar si el capital inicial es menor a 500.000
-    if cap_actual < 500000:
-        # Sumar al capital 1.000.000 actual si es menor a 500.000 
-        cap_actual += 1000000
-        print(f'Se han sumado 1.000.000€ el capital actual es de : {cap_actual}')
-    else:
-        print(f'El capital actual es suficiente: {cap_actual}€')
+    # Mostrar la información de los jugadores
+    mostrar_informacion_jugadores(jugadores_info)
 
 # Definimos los jugadores: V (Vermell), G (Groc), T (Taronja), B (Blau)
 jugadores = ['V', 'G', 'T', 'B']
+jugadores_color = {'V': 'Vermell', 'G': 'Groc', 'T': 'Taronja', 'B': 'Blau'}
 
 # Mezclamos aleatoriamente el orden de los jugadores
 random.shuffle(jugadores)
 
+# Información inicial de los jugadores
+jugadores_info = {
+    'banca': {'diners': 10000000},  # Capital de la banca
+    'jugadors': {
+        'V': {'nom': 'Angel', 'diners': 2400, 'carrers': ['Roselló', 'Aribau', 'Rambles'], 'color': 'Vermell', 'especial': 'Sortir de la presó'},
+        'G': {'nom': 'Augusta', 'diners': 180, 'carrers': ['Sant Joan', 'Via Augusta'], 'color': 'Groc', 'especial': None},
+        'T': {'nom': 'Jugador Taronja', 'diners': 1600, 'carrers': ['Marina', 'Aribau', 'Rambles'], 'color': 'Taronja', 'especial': None},
+        'B': {'nom': 'Jugador Blau', 'diners': 2000, 'carrers': [], 'color': 'Blau', 'especial': None}
+    }
+}
+
 # Mostramos el orden de tirada
 print(f"Aquest serà l'ordre de tota la partida ({''.join(jugadores)}).")
 print(f"Significa que primer tira el {jugadores[0]}, després el {jugadores[1]}, després el {jugadores[2]} i finalment el {jugadores[3]}.")
-
-# Capital inicial de cada jugador
-dinero_inicial = {jugador: 2000 for jugador in jugadores}
 
 # Posiciones iniciales de los jugadores en el tablero
 posiciones = {jugador: 0 for jugador in jugadores}  # Empiezan en la casilla 0
@@ -149,4 +154,4 @@ for jugador in jugadores:
                f"El jugador {jugador} se moverá {mov_casillas} casillas.")
     
     # Mostrar el tablero con las posiciones actualizadas y el mensaje en el centro
-    mostrar_tablero(posiciones, mensaje)
+    mostrar_tablero(posiciones, mensaje, jugadores_info)
