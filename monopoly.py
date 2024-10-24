@@ -1,3 +1,4 @@
+import Datos_monoply
 import precios
 # Orden de tirada
 import random
