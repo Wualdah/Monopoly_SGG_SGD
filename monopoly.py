@@ -1,3 +1,7 @@
+
+import Datos_monoply
+import precios
+# Orden de tirada
 import random
 
 # Función para tirar los dados
