@@ -159,13 +159,8 @@ casillas = [
     {
         "nombre": "Parking",
         "jugadores":[],
-        "tipo":"calle",
+        "tipo":"especial",
         "propietario":"Banco",
-        "alquilar casa":0,
-        "alquilar hotel":0,
-        "comprar terreno":0,
-        "comprar casa":0,
-        "comprar hotel":0
 
     },
 
@@ -183,7 +178,7 @@ casillas = [
     },
 
     {
-        "nombre": "Lauria",
+        "nombre": "Fontan",
         "jugadores":[],
         "tipo":"calle",
         "propietario":"Banco",
@@ -196,7 +191,15 @@ casillas = [
     },
 
     {
-        "nombre": "Lauria",
+        "nombre": "Sort",
+        "jugadores":[],
+        "tipo":"especial",
+        "propietario":"Banco",
+
+    },
+
+    {
+        "nombre": "Rambless",
         "jugadores":[],
         "tipo":"calle",
         "propietario":"Banco",
@@ -209,7 +212,7 @@ casillas = [
     },
 
     {
-        "nombre": "Lauria",
+        "nombre": "Pl.Cat",
         "jugadores":[],
         "tipo":"calle",
         "propietario":"Banco",
@@ -222,16 +225,8 @@ casillas = [
     },
 
     {
-        "nombre": "Lauria",
-        "jugadores":[],
-        "tipo":"calle",
-        "propietario":"Banco",
-        "alquilar casa":0,
-        "alquilar hotel":0,
-        "comprar terreno":0,
-        "comprar casa":0,
-        "comprar hotel":0
-
-    },
-
+        "nombre": "Anr pró",
+        "jugadores": [],
+        "tipo": "especial"
+    }
 ]
