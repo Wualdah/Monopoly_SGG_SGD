@@ -26,10 +26,12 @@ dinero_inicial = {jugador: 2000 for jugador in jugadores}
 # Función para actualizar y mostrar el tablero con las posiciones de los jugadores
 def mostrar_tablero(posiciones):
     # Tablero original dividido en filas y columnas
-    fila_arriba = ["Parking", "Urquinoa", "Fontan", "Suerte", "Rambles", "Pl. Cat", "Anr pró"]
-    fila_abajo = ["Presó", "Consell", "Marina", "Suerte", "Rosell", "Lauria", "Sortida"]
-    columna_izquierda = ["Aragó", "Sant Joan", "Caixa", "Aribau", "Muntaner"]
-    columna_derecha = ["Angel", "Augusta", "Caixa", "Balmes", "Gracia"]
+    fila_arriba =["Sortida", "Lauria", "Rosell", "Suerte", "Marina", "Consell", "Presó"]
+    fila_abajo = ["Anr pró", "Pl. Cat", "Rambles", "Suerte", "Fontan", "Urquinoa", "Parking"]
+    columna_izquierda = ["Gracia", "Balmes", "Caixa", "Augusta", "Angel"]
+    columna_derecha = ["Muntaner", "Aribau", "Caixa", "Sant Joan", "Aragó"]
+   
+
 
     # Función para actualizar las casillas con las posiciones de los jugadores
     def actualizar_casillas(casillas, fila_inicial):
@@ -144,3 +146,133 @@ def jugar():
 
 # Llamamos a la función para comenzar el juego
 jugar()
+import random
+
+# Datos de jugadores
+jugadores = {
+    'VermeLl': {
+        "CaLles": [],
+        "Dinero": 2000,
+        "Especial": [],
+        "CasiLla": 0,
+        "Posicion": 0,
+        "Inicial": "V"
+    },
+    'Blau': {
+        "CaLles": [],
+        "Dinero": 2000,
+        "Especial": [],
+        "CasiLla": 0,
+        "Posicion": 0,
+        "Inicial": "B"
+    },
+    'Groc': {
+        "CaLles": [],
+        "Dinero": 2000,
+        "Especial": [],
+        "CasiLla": 0,
+        "Posicion": 0,
+        "Inicial": "G"
+    },
+    'Taronja': {
+        "CaLles": [],
+        "Dinero": 2000,
+        "Especial": [],
+        "CasiLla": 0,
+        "Posicion": 0,
+        "Inicial": "T"
+    }
+}
+
+# Información de propiedades
+casillas = [
+    {"nombre": "Sortida", "jugadores": [], "tipo": "especial", "Posicion": 0},
+    {"nombre": "Lauria", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 1},
+    {"nombre": "Roselló", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 2},
+    {"nombre": "Suerte", "jugadores": [], "Posicion": 3},
+    {"nombre": "Marina", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 4},
+    {"nombre": "Consell", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 5},
+    {"nombre": "Prisión", "jugadores": [], "Posicion": 6},
+    {"nombre": "Muntaner", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 7},
+    {"nombre": "Aribau", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 8},
+    {"nombre": "Caixa", "jugadores": [], "Posicion": 9},
+    {"nombre": "S.Joan", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 10},
+    {"nombre": "Aragó", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 11},
+    {"nombre": "Parking", "jugadores": [], "tipo": "especial", "propietario": "Banco", "Posicion": 12},
+    {"nombre": "Urquinaona", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 13},
+    {"nombre": "Fontana", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 14},
+    {"nombre": "Sort", "jugadores": [], "tipo": "especial", "propietario": "Banco", "Posicion": 15},
+    {"nombre": "Rambles", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 16},
+    {"nombre": "Pl. Catalunya", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 17},
+    {"nombre": "Anr pró", "jugadores": [], "tipo": "especial", "Posicion": 18},
+    {"nombre": "Angel", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 19},
+    {"nombre": "Augusta", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 20},
+    {"nombre": "Caixa", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 21},
+    {"nombre": "Balmes", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 22},
+    {"nombre": "Gracia", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 23},
+    {"nombre": "Pl. Cat", "jugadores": [], "tipo": "caLle", "propietario": "Banco", "alquilar casa": 0, "alquilar hotel": 0, "comprar terreno": 0, "comprar casa": 0, "comprar hotel": 0, "Posicion": 24}
+]
+
+# Función para tirar los dados
+def tirar_dados():
+    dado1 = random.randint(1, 6)
+    dado2 = random.randint(1, 6)
+    suma_dados = dado1 + dado2  
+    return dado1, dado2, suma_dados
+
+# Función para actualizar y mostrar el tablero con las posiciones de los jugadores
+def mostrar_tablero():
+    # Mostrar el tablero de forma simplificada
+    print("\nTablero:")
+    for casilla in casillas:
+        jugadores_en_casilla = [jugador for jugador, info in jugadores.items() if info['Posicion'] == casilla["Posicion"]]
+        casilla_display = f"{casilla['nombre']} - Jugadores: {', '.join(jugadores_en_casilla) if jugadores_en_casilla else 'Nadie'}"
+        print(casilla_display)
+
+# Función principal del juego
+def jugar():
+    turno = 0
+    while True:
+        jugador_actual = list(jugadores.keys())[turno]
+        print(f"\nEs el turno de {jugador_actual}. Dinero: {jugadores[jugador_actual]['Dinero']}")
+        
+        # Tirar dados
+        dado1, dado2, suma = tirar_dados()
+        print(f"{jugador_actual} tiró: {dado1} + {dado2} = {suma}")
+        
+        # Mover al jugador
+        posicion_actual = jugadores[jugador_actual]["Posicion"]
+        nueva_posicion = (posicion_actual + suma) % len(casillas)
+        jugadores[jugador_actual]["Posicion"] = nueva_posicion
+        
+        # Mostrar el tablero
+        mostrar_tablero()
+        
+        # Acciones en la nueva posición
+        casilla_actual = casillas[nueva_posicion]
+        
+        # Si la casilla es una propiedad
+        if "tipo" in casilla_actual and casilla_actual["tipo"] == "caLle":
+            print(f"{jugador_actual} cayó en {casilla_actual['nombre']}.")
+            if casilla_actual["propietario"] == "Banco":
+                # Opción de comprar la propiedad
+                comprar = input(f"¿Deseas comprar {casilla_actual['nombre']} por {casilla_actual['comprar terreno']}? (s/n): ")
+                if comprar.lower() == 's':
+                    if jugadores[jugador_actual]['Dinero'] >= casilla_actual['comprar terreno']:
+                        jugadores[jugador_actual]['Dinero'] -= casilla_actual['comprar terreno']
+                        casilla_actual['propietario'] = jugador_actual
+                        jugadores[jugador_actual]['CaLles'].append(casilla_actual['nombre'])
+                        print(f"{jugador_actual} compró {casilla_actual['nombre']}.")
+                    else:
+                        print(f"{jugador_actual} no tiene suficiente dinero para comprar {casilla_actual['nombre']}.")
+                else:
+                    print(f"{jugador_actual} decidió no comprar {casilla_actual['nombre']}.")
+            else:
+                print(f"{jugador_actual} cayó en la propiedad de {casilla_actual['propietario']}.")
+                
+        # Pasar el turno al siguiente jugador
+        turno = (turno + 1) % len(jugadores)
+
+# Iniciar el juego
+if __name__ == "__main__":
+    jugar()
